@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Noise</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ccc;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding-top: 10%;
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        #password-form {
+            margin-top: 40px;
+            display: none;
+        }
+
+        #password-input {
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #111;
+            border: 1px solid #333;
+            color: #ccc;
+        }
+
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin-left: 10px;
+            background-color: #222;
+            color: #ccc;
+            border: none;
+            cursor: pointer;
+        }
+
+        #submit-btn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Just static...</h1>
+    <p>There’s nothing but silence here.</p>
+
+    <audio controls>
+        <source src="12_3.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <p class="note">Hint: Some things must be <em>seen</em>, not heard.</p>
+
+    <form id="password-form">
+        <input type="text" id="password-input" placeholder="Enter password">
+        <button type="submit" id="submit-btn">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('password-form').style.display = 'block';
+
+        document.getElementById('password-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = document.getElementById('password-input').value.trim().toLowerCase();
+            const correct = 'gengar'; 
+
+            if (input === correct) {
+                alert('Access granted! Redirecting...');
+                window.location.href = '/12_4'; 
+            } else {
+                alert('Incorrect password. Try again.');
+            }
+        });
+    </script>
+
+    <!--
+        Hehe. Will 9_2 be of help?!
+    -->
+</body>
+
+</html>
